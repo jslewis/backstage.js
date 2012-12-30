@@ -28,7 +28,7 @@
   var viewStack, pushView, peekView, popView;
   var modelStack, pushModel, peekModel, popModel;
 
-  var ID_ATTRIBUTE = 'data-backpack-id';
+  var ID_ATTRIBUTE = 'data-backstage-id';
   var splitter = /\s+/;
 
   
