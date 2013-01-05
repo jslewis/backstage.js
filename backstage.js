@@ -637,7 +637,7 @@
     //
     // An example usage might be to pass in Backbone itself, if you're using
     // that as a global events bus.
-    target: null,
+    target: Backbone,
     
     // Optional. A Handlebars template string to be rendered as the contents
     // of this view. Used to compile a Handlebars template function if 'templateFunction'
@@ -662,9 +662,12 @@
     // and you'll be ignoring any view block content.
     allowTemplateOverride: false,
     
-    // Optional. A string of space-separated attribute names on the model that
+    // Optional. A string of space-separated attribute names on the model whose changes
     // will trigger a re-render of this view.
     watch: null,
+    
+    // Optional. A string of space-separated events on 'model' that will trigger a re-render of this view.
+    watchEvents: null,
     
     // Generally read-only, unless you specifically need to manage them. An array
     // of this view's auto-created child views.
@@ -689,6 +692,10 @@
         _.each(toWatch, function(key) {
           this.listenTo(this.model, 'change:' + key, this.render, this);
         }, this);
+        
+        if (this.watchEvents) {
+          this.listenTo(this.model, this.watchEvents, this.render, this);
+        }
       }
     },
 
@@ -812,7 +819,7 @@
     // Create the new view
     ViewClass = getViewClass(className) || View;
     view = new ViewClass(attrs);
-    view.$el.attr(ID_ATTRIBUTE, view.cid);
+    //view.$el.attr(ID_ATTRIBUTE, view.cid);
     
     // Give the view its template function, unless it already has something.
     if (view.allowTemplateOverride || (!view.template && !view.templateFunction)) {
@@ -955,7 +962,13 @@
   registerViewClass('CollectionView', CollectionView);
 
   Handlebars.registerHelper('collection', function(model, options) {
-    options.hash.model = model;
+    if (options) {
+      options.hash.model = _.isString(model) ? getModel(model) : model;
+    }
+    else {
+      options = model;
+    }
+    
     return viewBlockHelper('CollectionView', options); // simply call the basic view block helper with "CollectionView" as class
   });
 
