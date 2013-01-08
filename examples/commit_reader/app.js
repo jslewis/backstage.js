@@ -37,7 +37,8 @@ _.extend(CommitReader.App.prototype, {
   },
   
   refresh: function() {
-    //$.getScript('sample_data.js');
+    // $.getScript('sample_data.js'); // sample data instead of live github.com data
+
     $.getScript('https://api.github.com/events?callback=CommitReader.parseEvents', function() {
       $('body').scrollTop(0);
     });
@@ -47,7 +48,7 @@ _.extend(CommitReader.App.prototype, {
   
   _onEventsFetchSuccess: function(response) {
     var events = _.where(response.data, { type: 'PushEvent' });
-    this.eventCollection.reset(events);
+    this.eventCollection.add(events, { at: 0 });
   }
   
 });
