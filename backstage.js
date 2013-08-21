@@ -637,7 +637,7 @@
     //
     // An example usage might be to pass in Backbone itself, if you're using
     // that as a global events bus.
-    target: Backbone,
+    target: null,
     
     // Optional. A Handlebars template string to be rendered as the contents
     // of this view. Used to compile a Handlebars template function if 'templateFunction'
