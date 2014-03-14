@@ -1,82 +1,40 @@
 * {
-  margin: 0px;
-  padding: 0px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    color: #444444;
+    background-color: gray;
 }
 
 body {
-  min-width: 200px;
-  color: #444;
-  font-family: "Courier";
-  font-size: 2em;
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
 }
 
 #header {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-
-  margin: 0 auto;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid #999;
-
-  -mox-box-shadow: 0 10px 12px #999;
-  -webkit-box-shadow: 0 1px 12px #999;
-  box-shadow: 0 10px 12px #999;
-  
-  text-align: center;
-
-  background-color: white;
-}
-
-#header div {
-  width: 100%;
-}
-
-img {
-  height: 1em;
-  padding-right: 0.5em;
-  display: inline;
-}
-
-.refresh-button {
-  float: right;
-}
-
-#content {
-  max-width: 100%;
-  width: 100%;
-  font-family: "Courier";
-  margin-top: 4em;
-  padding-bottom: 2em;
-}
-
-ul {
-  list-style-type: none;
+    font-size: 2em;
+    background-color: lightblue;
+    padding: 16px;
 }
 
 li {
-  padding: 1em;
+    margin: 16px;
+    margin-top: 32px;
+    list-style-type: none;
 }
 
-div.commit {
-  padding-bottom: 2em;
-  margin-left: 1em;
-  margin-right: 1em;
+.message {
+    font-family: Courier, monospace;
+    padding-bottom: 8px;
 }
 
-div.author {
-  margin-top: 0.3em;
-  margin-bottom: 1em;
-  display: block;
-  text-align: right;
-  font-style: italic;
-  font-size: 0.8em;
-}
-
-div.divider {
-  height: 1px;
-  background-color: #aaa;
-  width: 33%;
-  margin: 0 auto;
+.author {
+    text-align: right;
+    font-style: italic;
 }

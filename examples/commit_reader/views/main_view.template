@@ -1,5 +1,7 @@
 <div id="header">
-  <div id="title">Recent Github Commit Messages{{#button action="refresh" className="refresh-button"}}<img src="refresh.png"/>{{/button}}</div>
+  <div id="title">Recent Github Commit Messages
+    <!-- {{#button action="refresh" className="refresh-button"}}<img src="refresh.png"/>{{/button}} -->
+  </div>
 </div>
 
 <div id="content">
@@ -8,7 +10,6 @@
       <div class="commit">
         <div class="message">"{{message}}"</div>
         <div class="author">- {{author.name}}</div>
-        <div class="divider"></div>
       </div>
     {{/each}}
   {{/collection}}
